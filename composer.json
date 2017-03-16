@@ -1,0 +1,28 @@
+{
+  "name": "buuum/simpleform",
+  "type": "library",
+  "description": "Simple form for your app",
+  "homepage": "https://github.com/buuum/SimpleForm",
+  "keywords": [
+    "form"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Alfons Martinez",
+      "email": "alfonsmartinezparra@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "SimpleForm\\": "src/SimpleForm"
+    }
+  },
+  "require": {
+    "php": ">=5.5.0",
+    "buuum/validation": "^1.10"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "*"
+  }
+}
