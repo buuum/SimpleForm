@@ -67,10 +67,7 @@ class Forms
                 /** @var Forms $newr */
                 $newr = new $relations[$relation_name]['form_class']($relations[$relation_name]['validation_type'][$this->type]);
                 if ($relations[$relation_name]['relation_type'] == 'one') {
-                    $filt = $newr->filter([
-                        $relation_name => $data[$relation_name]
-                    ]);
-                    $data[$relation_name] = $filt[$relation_name];
+                    $data[$relation_name] = $newr->filter($data[$relation_name]);
                 } else {
                     if (!empty($data[$relation_name])) {
                         foreach ($data[$relation_name] as $key => $relationdata) {
