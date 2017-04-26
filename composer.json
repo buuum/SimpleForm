@@ -20,7 +20,7 @@
   },
   "require": {
     "php": ">=5.5.0",
-    "buuum/validation": "^1.10"
+    "buuum/validation": "^2.0"
   },
   "require-dev": {
     "phpunit/phpunit": "*"
