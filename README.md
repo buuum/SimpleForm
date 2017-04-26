@@ -8,7 +8,7 @@ Simple Form
 
 ### System Requirements
 
-You need PHP >= 5.5.0 to use Buuum\simpleform but the latest stable version of PHP is recommended.
+You need PHP >= 7.0.0 to use Buuum\simpleform but the latest stable version of PHP is recommended.
 
 ### Composer
 
