@@ -131,16 +131,29 @@ abstract class AbstractForm
                     }
                 } else {
                     $value = $data[$relation_name];
-                    foreach ($value as $k => $v) {
-                        if ($errors_ = $relation_class->checkvalidate($v)) {
+                    if (empty($value)) {
+                        if ($errors_ = $relation_class->checkvalidate([])) {
                             $errors['relations'][$relation_name]['many'][] = [
                                 'alias'            => !empty($alias[$relation_name]) ? $alias[$relation_name] : $relation_name,
                                 'input_name'       => $relation_name,
-                                'position'         => $k,
+                                'position'         => 0,
                                 'fields'           => !empty($errors_['fields']) ? $errors_['fields'] : [],
                                 'extravalidations' => !empty($errors_['extravalidations']) ? $errors_['extravalidations'] : [],
                                 'relations'        => (!empty($errors_['relations'])) ? $errors_['relations'] : []
                             ];
+                        }
+                    } else {
+                        foreach ($value as $k => $v) {
+                            if ($errors_ = $relation_class->checkvalidate($v)) {
+                                $errors['relations'][$relation_name]['many'][] = [
+                                    'alias'            => !empty($alias[$relation_name]) ? $alias[$relation_name] : $relation_name,
+                                    'input_name'       => $relation_name,
+                                    'position'         => $k,
+                                    'fields'           => !empty($errors_['fields']) ? $errors_['fields'] : [],
+                                    'extravalidations' => !empty($errors_['extravalidations']) ? $errors_['extravalidations'] : [],
+                                    'relations'        => (!empty($errors_['relations'])) ? $errors_['relations'] : []
+                                ];
+                            }
                         }
                     }
                 }
